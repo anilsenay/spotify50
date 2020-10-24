@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useArtists = (token) => {
-  const [artists, setArtists] = useState(null);
+const useTracks = (token) => {
+  const [tracks, setTracks] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,11 +15,11 @@ const useArtists = (token) => {
   };
 
   let one =
-    "https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=50";
+    "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=50";
   let two =
-    "https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=50";
+    "https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=50";
   let three =
-    "https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=50";
+    "https://api.spotify.com/v1/me/top/tracks?time_range=long_term&limit=50";
 
   useEffect(() => {
     setIsLoading(true);
@@ -35,7 +35,7 @@ const useArtists = (token) => {
             const responseTwo = responses[1];
             const responesThree = responses[2];
             console.log(responseOne, responseTwo, responesThree);
-            setArtists({
+            setTracks({
               short_term:
                 responseOne.status == 200 ? responseOne.data.items : [],
               medium_term:
@@ -46,7 +46,7 @@ const useArtists = (token) => {
           })
         );
       } catch (err) {
-        setArtists(null);
+        setTracks(null);
         setError(err);
         setIsLoading(false);
       }
@@ -55,7 +55,7 @@ const useArtists = (token) => {
     fetchUser();
   }, [token]);
 
-  return { artists, error, isLoading };
+  return { tracks, error, isLoading };
 };
 
-export default useArtists;
+export default useTracks;

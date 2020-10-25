@@ -23,7 +23,7 @@ const useTracks = (token) => {
 
   useEffect(() => {
     setIsLoading(true);
-    function fetchUser() {
+    function fetchTracks() {
       try {
         const requestOne = axios.get(one, headers);
         const requestTwo = axios.get(two, headers);
@@ -52,7 +52,7 @@ const useTracks = (token) => {
       }
     }
 
-    fetchUser();
+    fetchTracks();
   }, [token]);
 
   return { tracks, error, isLoading };

@@ -23,7 +23,7 @@ const useArtists = (token) => {
 
   useEffect(() => {
     setIsLoading(true);
-    function fetchUser() {
+    function fetchArtists() {
       try {
         console.log("entered");
         const requestOne = axios.get(one, headers);
@@ -54,7 +54,7 @@ const useArtists = (token) => {
       }
     }
 
-    !artists && fetchUser();
+    fetchArtists();
   }, []);
 
   return { artists, error, isLoading };

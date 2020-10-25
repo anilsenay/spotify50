@@ -4,6 +4,7 @@ import styles from "./list.module.css";
 
 import fire from "../../firebase/config";
 import Head from "next/head";
+import appHook from "../../hooks/app.hook";
 
 export default function List({ data, error }) {
   const [type, setType] = useState("artists");
@@ -15,6 +16,9 @@ export default function List({ data, error }) {
     medium_term: "Last 6 Months",
     long_term: "All Time",
   };
+
+  const { useAppState } = appHook();
+  console.log(useAppState());
 
   console.log(data, error);
   return (

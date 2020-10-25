@@ -3,6 +3,7 @@ const appInitialState = {
   artists: null,
   tracks: null,
   profile: null,
+  list_id: null,
 };
 
 const appReducer = (state, action) => {
@@ -26,6 +27,11 @@ const appReducer = (state, action) => {
       return {
         ...state,
         profile: action.payload,
+      };
+    case "SET_LIST_ID":
+      return {
+        ...state,
+        list_id: action.payload,
       };
     default:
       return state;

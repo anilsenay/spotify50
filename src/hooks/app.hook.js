@@ -16,24 +16,31 @@ const appHook = () => {
     });
   };
 
-  const setArtists = (token) => {
+  const setArtists = (artists) => {
     appDispatch({
       type: "SET_ARTISTS",
-      payload: token,
+      payload: artists,
     });
   };
 
-  const setTracks = (token) => {
+  const setTracks = (tracks) => {
     appDispatch({
       type: "SET_TRACKS",
-      payload: token,
+      payload: tracks,
     });
   };
 
-  const setProfile = (token) => {
+  const setProfile = (profile) => {
     appDispatch({
       type: "SET_PROFILE",
-      payload: token,
+      payload: profile,
+    });
+  };
+
+  const setListId = (id) => {
+    appDispatch({
+      type: "SET_LIST_ID",
+      payload: id,
     });
   };
 
@@ -43,6 +50,7 @@ const appHook = () => {
     setArtists,
     setTracks,
     setProfile,
+    setListId,
   };
 };
 

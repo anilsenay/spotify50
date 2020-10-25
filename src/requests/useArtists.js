@@ -25,6 +25,7 @@ const useArtists = (token) => {
     setIsLoading(true);
     function fetchUser() {
       try {
+        console.log("entered");
         const requestOne = axios.get(one, headers);
         const requestTwo = axios.get(two, headers);
         const requestThree = axios.get(three, headers);
@@ -35,14 +36,15 @@ const useArtists = (token) => {
             const responseTwo = responses[1];
             const responesThree = responses[2];
             console.log(responseOne, responseTwo, responesThree);
-            setArtists({
+            const newState = {
               short_term:
                 responseOne.status == 200 ? responseOne.data.items : [],
               medium_term:
                 responseTwo.status == 200 ? responseTwo.data.items : [],
               long_term:
                 responesThree.status == 200 ? responesThree.data.items : [],
-            });
+            };
+            setArtists(newState);
           })
         );
       } catch (err) {
@@ -52,8 +54,8 @@ const useArtists = (token) => {
       }
     }
 
-    fetchUser();
-  }, [token]);
+    !artists && fetchUser();
+  }, []);
 
   return { artists, error, isLoading };
 };

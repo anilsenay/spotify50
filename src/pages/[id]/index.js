@@ -5,6 +5,7 @@ import styles from "./list.module.css";
 import fire from "../../firebase/config";
 import Head from "next/head";
 import appHook from "../../hooks/app.hook";
+import Footer from "../../components/Footer";
 
 export default function List({ data, error }) {
   const [type, setType] = useState("artists");
@@ -84,7 +85,7 @@ export default function List({ data, error }) {
             data[type][term] &&
             data[type][term].map((item, index) => {
               return type === "artists" ? (
-                <a href={item.external_urls.spotify} key={item.name}>
+                <a href={item.external_urls.spotify} key={item.id}>
                   <div className={styles.card}>
                     <img
                       src={item.images[0].url}
@@ -97,7 +98,7 @@ export default function List({ data, error }) {
                   </div>
                 </a>
               ) : (
-                <a href={item.external_urls.spotify} key={item.name}>
+                <a href={item.external_urls.spotify} key={item.id}>
                   <div className={styles.card}>
                     <div className={styles.discImage}>
                       <div className={styles.discCircle}>
@@ -129,16 +130,7 @@ export default function List({ data, error }) {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }

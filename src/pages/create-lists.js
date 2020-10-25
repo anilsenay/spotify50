@@ -32,6 +32,8 @@ function CreateLists({ router }) {
         .collection("Lists")
         .add({
           user_id: profile.id,
+          display_name: profile.display_name,
+          profile_url: profile.external_urls.spotify,
           tracks,
           artists,
         })

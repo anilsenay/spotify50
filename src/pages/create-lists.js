@@ -35,25 +35,34 @@ function CreateLists({ router }) {
     if (artists && tracks && profile) {
       fire
         .firestore()
-        .collection("Lists")
-        .add({
-          user_id: profile.id,
-          display_name: profile.display_name,
-          profile_url: profile.external_urls.spotify,
-          tracks,
-          artists,
-        })
-        .then((docRef) => {
-          setListId(docRef.id);
-          fire
-            .firestore()
-            .collection("Users")
-            .doc(profile.id)
-            .set({
-              profile,
-              lists: docRef.id,
-            })
-            .then(() => routerRef.push(`/${docRef.id}`));
+        .collection("Users")
+        .doc(profile.id)
+        .get()
+        .then((doc) => {
+          doc.exists
+            ? routerRef.push(`/${doc.data().lists}`)
+            : fire
+                .firestore()
+                .collection("Lists")
+                .add({
+                  user_id: profile.id,
+                  display_name: profile.display_name,
+                  profile_url: profile.external_urls.spotify,
+                  tracks,
+                  artists,
+                })
+                .then((docRef) => {
+                  setListId(docRef.id);
+                  fire
+                    .firestore()
+                    .collection("Users")
+                    .doc(profile.id)
+                    .set({
+                      profile,
+                      lists: docRef.id,
+                    })
+                    .then(() => routerRef.push(`/${docRef.id}`));
+                });
         });
     }
   }, [artists, tracks, profile]);

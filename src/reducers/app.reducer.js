@@ -1,5 +1,8 @@
 const appInitialState = {
   access_token: null,
+  artists: null,
+  tracks: null,
+  profile: null,
 };
 
 const appReducer = (state, action) => {
@@ -8,6 +11,21 @@ const appReducer = (state, action) => {
       return {
         ...state,
         access_token: action.payload,
+      };
+    case "SET_ARTISTS":
+      return {
+        ...state,
+        artists: action.payload,
+      };
+    case "SET_TRACKS":
+      return {
+        ...state,
+        tracks: action.payload,
+      };
+    case "SET_PROFILE":
+      return {
+        ...state,
+        profile: action.payload,
       };
     default:
       return state;

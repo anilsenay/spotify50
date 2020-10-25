@@ -16,9 +16,33 @@ const appHook = () => {
     });
   };
 
+  const setArtists = (token) => {
+    appDispatch({
+      type: "SET_ARTISTS",
+      payload: token,
+    });
+  };
+
+  const setTracks = (token) => {
+    appDispatch({
+      type: "SET_TRACKS",
+      payload: token,
+    });
+  };
+
+  const setProfile = (token) => {
+    appDispatch({
+      type: "SET_PROFILE",
+      payload: token,
+    });
+  };
+
   return {
     useAppState,
     setAccessToken,
+    setArtists,
+    setTracks,
+    setProfile,
   };
 };
 

@@ -2,10 +2,6 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import appHook from "../hooks/app.hook";
 
-import axios from "axios";
-import useArtists from "../requests/useArtists";
-import useTracks from "../requests/useTracks";
-
 export default function Login({ data }) {
   console.log(data);
   const router = useRouter();

@@ -16,9 +16,12 @@ const useProfile = (token) => {
 
   useEffect(() => {
     setIsLoading(true);
-    function fetchProfile() {
+    async function fetchProfile() {
       try {
-        const requestOne = await axios.get("https://api.spotify.com/v1/me", headers);
+        const requestOne = await axios.get(
+          "https://api.spotify.com/v1/me",
+          headers
+        );
         const data = requestOne.data;
 
         setProfile(data);

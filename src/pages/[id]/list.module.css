@@ -94,7 +94,6 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease, all 0.2s ease-in-out;
-  margin-right: 20px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -184,8 +183,7 @@
 .listIcon {
   background-color: transparent;
   border: none;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
 }
 
 .switchContainer {

@@ -9,7 +9,8 @@ export default function Navigation() {
   return (
     <div className={styles.container}>
       <nav className={styles.navigation}>
-        <h2 className={styles.logo}>logo</h2>
+        {/* {<h2 className={styles.logo}>Spotify 50</h2>} */}
+        <img src="/logo.png" className={styles.logo} />
         <a
           href={router.query.id && "/" + router.query.id + "?type=artists"}
           as="[id]/[type]"

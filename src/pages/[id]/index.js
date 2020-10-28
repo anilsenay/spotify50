@@ -129,8 +129,6 @@ export default function List({ data, error }) {
             })}
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

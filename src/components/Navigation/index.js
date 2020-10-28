@@ -11,16 +11,18 @@ export default function Navigation() {
       <nav className={styles.navigation}>
         <h2 className={styles.logo}>logo</h2>
         <a
-          href={router.query.id && "/" + router.query.id + "/artists"}
+          href={router.query.id && "/" + router.query.id + "?type=artists"}
           as="[id]/[type]"
           className={styles.navItem}
+          style={{ color: router.query?.type === "artists" && "#1db954" }}
         >
           Artists
         </a>
         <a
-          href={router.query.id && "/" + router.query.id + "/tracks"}
+          href={router.query.id && "/" + router.query.id + "?type=tracks"}
           as="[id]/[type]"
           className={styles.navItem}
+          style={{ color: router.query?.type === "tracks" && "#1db954" }}
         >
           Tracks
         </a>

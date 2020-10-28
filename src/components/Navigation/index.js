@@ -14,7 +14,7 @@ export default function Navigation() {
           href={router.query.id && "/" + router.query.id + "?type=artists"}
           as="[id]/[type]"
           className={styles.navItem}
-          style={{ color: router.query?.type === "artists" && "#1db954" }}
+          style={{ color: router.query?.type !== "tracks" && "#1db954" }}
         >
           Artists
         </a>

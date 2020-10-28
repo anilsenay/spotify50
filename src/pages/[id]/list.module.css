@@ -159,6 +159,11 @@
   margin-bottom: 40px;
   padding: 0px 50px;
   border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+}
+.headerItems {
+  display: flex;
+  margin-right: auto;
 }
 .headerItem {
   margin-right: 50px;
@@ -170,11 +175,25 @@
   cursor: pointer;
 }
 
+.listIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+}
+.listIcon {
+  background-color: transparent;
+  border: none;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .switchContainer {
   background-color: #f6f6f6;
   border: 2px solid #eee;
   border-radius: 16px;
-  margin-bottom: 15px;
+  margin: 15px 0px;
+  margin-left: auto;
   display: flex;
 }
 .switchButton {

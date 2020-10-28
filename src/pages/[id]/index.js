@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import Head from "next/head";
 
 import styles from "./list.module.css";
 
 import fire from "../../firebase/config";
-import Head from "next/head";
 import appHook from "../../hooks/app.hook";
-import Footer from "../../components/Footer";
+
+import ListRectangle from "../../icons/list-rect";
+import ListIcon from "../../icons/list";
 
 export default function List({ data, error }) {
   const [type, setType] = useState("artists");
   const [term, setTerm] = useState("long_term");
+  const [listType, setListType] = useState("rectangle");
 
   const typeTexts = { artists: "Artists", tracks: "Tracks" };
   const termTexts = {
@@ -37,7 +40,7 @@ export default function List({ data, error }) {
           's Spotify Stats
         </h1>
         <h2>{`Top 50 ${typeTexts[type]} (${termTexts[term]})`}</h2>
-        <div className={styles.switchContainer}>
+        {/* <div className={styles.switchContainer}>
           <button
             onClick={() => setType("artists")}
             className={styles.switchButton}
@@ -52,39 +55,63 @@ export default function List({ data, error }) {
           >
             <span>Tracks</span>
           </button>
-        </div>
+        </div> */}
         <div className={styles.listContainer}>
           <div className={styles.listHeader}>
-            <button
-              className={styles.headerItem}
-              style={{
-                color: term === "short_term" && "#1db954",
-                borderBottom: term === "short_term" && "3px solid #1db954",
-              }}
-              onClick={() => setTerm("short_term")}
-            >
-              1 Month
-            </button>
-            <button
-              className={styles.headerItem}
-              style={{
-                color: term === "medium_term" && "#1db954",
-                borderBottom: term === "medium_term" && "3px solid #1db954",
-              }}
-              onClick={() => setTerm("medium_term")}
-            >
-              6 Months
-            </button>
-            <button
-              className={styles.headerItem}
-              style={{
-                color: term === "long_term" && "#1db954",
-                borderBottom: term === "long_term" && "3px solid #1db954",
-              }}
-              onClick={() => setTerm("long_term")}
-            >
-              All Time
-            </button>
+            <div className={styles.headerItems}>
+              <button
+                className={styles.headerItem}
+                style={{
+                  color: term === "short_term" && "#1db954",
+                  borderBottom: term === "short_term" && "3px solid #1db954",
+                }}
+                onClick={() => setTerm("short_term")}
+              >
+                1 Month
+              </button>
+              <button
+                className={styles.headerItem}
+                style={{
+                  color: term === "medium_term" && "#1db954",
+                  borderBottom: term === "medium_term" && "3px solid #1db954",
+                }}
+                onClick={() => setTerm("medium_term")}
+              >
+                6 Months
+              </button>
+              <button
+                className={styles.headerItem}
+                style={{
+                  color: term === "long_term" && "#1db954",
+                  borderBottom: term === "long_term" && "3px solid #1db954",
+                }}
+                onClick={() => setTerm("long_term")}
+              >
+                All Time
+              </button>
+            </div>
+            <div className={styles.listIcons}>
+              <button
+                className={styles.listIcon}
+                onClick={() => setListType("line")}
+              >
+                <ListIcon
+                  width={24}
+                  height={24}
+                  fill={listType === "line" ? "#1db954" : "black"}
+                />
+              </button>
+              <button
+                className={styles.listIcon}
+                onClick={() => setListType("rectangle")}
+              >
+                <ListRectangle
+                  width={29}
+                  height={29}
+                  fill={listType === "rectangle" ? "#1db954" : "black"}
+                />
+              </button>
+            </div>
           </div>
           <div className={styles.listItems}>
             {data &&

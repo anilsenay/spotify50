@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .main {
@@ -99,7 +100,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 250px;
+  max-width: 230px;
   text-align: center;
 }
 
@@ -112,8 +113,8 @@
 }
 
 .card img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
 }
 
@@ -138,6 +139,35 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  background-color: #fff;
+  border: 2px solid #f6f6f6;
+  border-radius: 15px;
+}
+
+.listItems {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 50px;
+  padding-right: 50px;
+  justify-content: space-between;
+}
+
+.listHeader {
+  width: 100%;
+  display: flex;
+  margin-bottom: 40px;
+  padding: 0px 50px;
+  border-bottom: 1px solid #eee;
+}
+.headerItem {
+  margin-right: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 32px 0px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .switchContainer {
@@ -158,8 +188,8 @@
 }
 
 .discImage {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   position: relative;
   display: flex;
   align-items: center;
@@ -174,7 +204,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
   border-radius: 100%;
 }
 .discCircle {
@@ -184,6 +214,7 @@
   padding: 20px;
   background-color: #ffffff22;
   border-radius: 100%;
+  z-index: 2;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }

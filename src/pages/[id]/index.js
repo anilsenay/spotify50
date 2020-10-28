@@ -53,80 +53,88 @@ export default function List({ data, error }) {
             <span>Tracks</span>
           </button>
         </div>
-        <div className={styles.switchBar}>
-          <div className={styles.switchContainer}>
+        <div className={styles.listContainer}>
+          <div className={styles.listHeader}>
             <button
+              className={styles.headerItem}
+              style={{
+                color: term === "short_term" && "#1db954",
+                borderBottom: term === "short_term" && "3px solid #1db954",
+              }}
               onClick={() => setTerm("short_term")}
-              className={styles.switchButton}
-              style={{ backgroundColor: term === "short_term" && "white" }}
             >
-              <span>1 Month</span>
+              1 Month
             </button>
             <button
+              className={styles.headerItem}
+              style={{
+                color: term === "medium_term" && "#1db954",
+                borderBottom: term === "medium_term" && "3px solid #1db954",
+              }}
               onClick={() => setTerm("medium_term")}
-              className={styles.switchButton}
-              style={{ backgroundColor: term === "medium_term" && "white" }}
             >
-              <span>6 Months</span>
+              6 Months
             </button>
             <button
+              className={styles.headerItem}
+              style={{
+                color: term === "long_term" && "#1db954",
+                borderBottom: term === "long_term" && "3px solid #1db954",
+              }}
               onClick={() => setTerm("long_term")}
-              className={styles.switchButton}
-              style={{ backgroundColor: term === "long_term" && "white" }}
             >
-              <span>All Time</span>
+              All Time
             </button>
           </div>
-        </div>
-        <div className={styles.listContainer}>
-          {}
-          {data &&
-            data[type] &&
-            data[type][term] &&
-            data[type][term].map((item, index) => {
-              return type === "artists" ? (
-                <a href={item.external_urls.spotify} key={item.id}>
-                  <div className={styles.card}>
-                    <img
-                      src={item.images[0].url}
-                      alt={item.name}
-                      loading="lazy"
-                    />
-                    <p>
-                      {index + 1}. {item.name}
-                    </p>
-                  </div>
-                </a>
-              ) : (
-                <a href={item.external_urls.spotify} key={item.id}>
-                  <div className={styles.card}>
-                    <div className={styles.discImage}>
-                      <div className={styles.discCircle}>
-                        <div
-                          style={{
-                            width: 40,
-                            height: 40,
-                            borderRadius: 100,
-                            backgroundColor: "white",
-                          }}
-                        />
-                      </div>
+          <div className={styles.listItems}>
+            {data &&
+              data[type] &&
+              data[type][term] &&
+              data[type][term].map((item, index) => {
+                return type === "artists" ? (
+                  <a href={item.external_urls.spotify} key={item.id}>
+                    <div className={styles.card}>
                       <img
-                        src={item.album?.images[0].url}
+                        src={item.images[0].url}
                         alt={item.name}
                         loading="lazy"
                       />
+                      <p>
+                        {index + 1}. {item.name}
+                      </p>
                     </div>
-                    <p style={{ fontWeight: "bold" }}>
-                      {item.album?.artists
-                        .map((artist) => artist.name)
-                        .join(", ")}
-                    </p>
-                    <p>{item.name}</p>
-                  </div>
-                </a>
-              );
-            })}
+                  </a>
+                ) : (
+                  <a href={item.external_urls.spotify} key={item.id}>
+                    <div className={styles.card}>
+                      <div className={styles.discImage}>
+                        <div className={styles.discCircle}>
+                          <div
+                            style={{
+                              width: 40,
+                              height: 40,
+                              borderRadius: 100,
+                              backgroundColor: "white",
+                            }}
+                          />
+                        </div>
+                        <img
+                          src={item.album?.images[0].url}
+                          alt={item.name}
+                          loading="lazy"
+                        />
+                      </div>
+                      <p style={{ fontWeight: "bold" }}>
+                        {item.album?.artists
+                          .map((artist) => artist.name)
+                          .join(", ")}
+                      </p>
+                      <p>{item.name}</p>
+                    </div>
+                  </a>
+                );
+              })}
+          </div>
         </div>
       </main>
     </div>

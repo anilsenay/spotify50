@@ -71,3 +71,27 @@
   font-size: 15px;
   color: grey;
 }
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+}
+.userContainer h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.urlContainer {
+  margin-bottom: 20px;
+}
+.urlContainer input {
+  background-color: #f6f6f6;
+  border: 2px solid #eee;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #1db954;
+  margin-left: 20px;
+}
+.urlContainer span {
+  font-weight: bold;
+}

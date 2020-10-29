@@ -24,7 +24,8 @@ export default function List({ data, error, type }) {
     long_term: "All Time",
   };
 
-  const { useAppState } = appHook();
+  const { useAppState, setListId } = appHook();
+  !useAppState().list_id && setListId(router.query.id);
   console.log(useAppState());
 
   console.log(data, error);

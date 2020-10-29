@@ -13,13 +13,7 @@ import styles from "../styles/Loading.module.css";
 
 function CreateLists({ router }) {
   console.log(router.query.token);
-  const {
-    setArtists,
-    setProfile,
-    setTracks,
-    setListId,
-    useAppState,
-  } = appHook();
+  const { setArtists, setProfile, setTracks, useAppState } = appHook();
   const routerRef = useRouter();
 
   const { artists } = useArtists(router.query.token);
@@ -54,7 +48,6 @@ function CreateLists({ router }) {
                   artists,
                 })
                 .then((docRef) => {
-                  setListId(docRef.id);
                   fire
                     .firestore()
                     .collection("Users")

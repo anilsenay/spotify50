@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import appHook from "../hooks/app.hook";
 
+import styles from "../styles/Loading.module.css";
+
 export default function Login({ data }) {
   console.log(data);
   const router = useRouter();
@@ -25,5 +27,13 @@ export default function Login({ data }) {
       query: { token: access_token },
     });
 
-  return <div>Loading...</div>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.spinner}>
+        <div className={styles.cube1}></div>
+        <div className={styles.cube2}></div>
+      </div>
+      <span>Loading...</span>
+    </div>
+  );
 }

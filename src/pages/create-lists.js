@@ -9,6 +9,8 @@ import appHook from "../hooks/app.hook";
 
 import fire from "../firebase/config";
 
+import styles from "../styles/Loading.module.css";
+
 function CreateLists({ router }) {
   console.log(router.query.token);
   const {
@@ -69,7 +71,15 @@ function CreateLists({ router }) {
 
   console.log(useAppState());
 
-  return <div>Creating your lists...</div>;
+  return (
+    <div className={styles.container}>
+      <div className={styles.spinner}>
+        <div className={styles.cube1}></div>
+        <div className={styles.cube2}></div>
+      </div>
+      <span>Creating your lists...</span>
+    </div>
+  );
 }
 
 export default withRouter(CreateLists);

@@ -30,7 +30,12 @@ export default function Navigation() {
           <a
             as="[id]/[type]"
             className={styles.navItem}
-            style={{ color: router.query?.type !== "tracks" && "#1db954" }}
+            style={{
+              color:
+                router.query?.id &&
+                router.query?.type !== "tracks" &&
+                "#1db954",
+            }}
           >
             Artists
           </a>
@@ -45,7 +50,12 @@ export default function Navigation() {
           <a
             as="[id]/[type]"
             className={styles.navItem}
-            style={{ color: router.query?.type === "tracks" && "#1db954" }}
+            style={{
+              color:
+                router.query?.id &&
+                router.query?.type === "tracks" &&
+                "#1db954",
+            }}
           >
             Tracks
           </a>

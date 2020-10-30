@@ -10,6 +10,7 @@ import ShareIcon from "../icons/share";
 import appHook from "../hooks/app.hook";
 import { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Link from "next/link";
 
 export default function Home() {
   const [copyText, setCopyText] = useState();
@@ -46,9 +47,9 @@ export default function Home() {
                     <input defaultValue={list_id} value={copyText} />
                   </CopyToClipboard>
                 </div>
-                <a className={styles.button} href="#">
-                  Manage Your Account
-                </a>
+                <Link href="/account">
+                  <a className={styles.button}>Manage Your Account</a>
+                </Link>
               </div>
             ) : (
               <>

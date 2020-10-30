@@ -71,6 +71,7 @@ function CreateLists({ router }) {
         <div className={styles.cube2}></div>
       </div>
       <span>Creating your lists...</span>
+      <span>This could take 30-40 second at your first time</span>
     </div>
   );
 }

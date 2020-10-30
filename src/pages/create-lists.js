@@ -35,7 +35,7 @@ function CreateLists({ router }) {
         .doc(profile.id)
         .get()
         .then((doc) => {
-          doc.exists
+          doc.exists && doc.data().lists
             ? routerRef.push(`/${doc.data().lists}`)
             : fire
                 .firestore()

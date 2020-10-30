@@ -1,0 +1,84 @@
+.container {
+  min-height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container h1 {
+  font-size: 3rem;
+}
+
+.main {
+  max-width: 1400px;
+  width: 100%;
+  padding: 5rem 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: row;
+}
+.contentTexts {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
+
+.button {
+  background-color: #1db954;
+  color: white;
+  padding: 15px 20px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.removeButton {
+  background-color: #f44336;
+  color: white;
+  padding: 15px 20px;
+  width: max-content;
+  width: -moz-max-content;
+  border-radius: 50px;
+  font-weight: bold;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+}
+.userContainer h3 {
+  font-size: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.userContainer a {
+  color: #1db954;
+  font-weight: bold;
+}
+
+.urlContainer {
+  margin-bottom: 20px;
+}
+.urlContainer input {
+  background-color: #f6f6f6;
+  border: 2px solid #eee;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #1db954;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.urlContainer span {
+  font-weight: bold;
+}

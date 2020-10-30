@@ -61,9 +61,9 @@ export default function Navigation() {
           </a>
         </Link>
         {list_id && profile ? (
-          <a href="/account" className={styles.login}>
-            My Account
-          </a>
+          <Link href="/account">
+            <a className={styles.login}>My Account</a>
+          </Link>
         ) : (
           <a href={loginUrl} className={styles.login}>
             Login

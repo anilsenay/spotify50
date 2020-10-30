@@ -91,6 +91,7 @@
   border-radius: 20px;
   color: #1db954;
   margin-left: 20px;
+  cursor: pointer;
 }
 .urlContainer span {
   font-weight: bold;

@@ -1,16 +1,27 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import Image from "next/image";
+
+import styles from "../styles/Home.module.css";
 
 import PlaylistIcon from "../icons/playlist";
 import ClockIcon from "../icons/clock";
 import ShareIcon from "../icons/share";
+
 import appHook from "../hooks/app.hook";
+import { useState } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Home() {
+  const [copyText, setCopyText] = useState();
   const { useAppState } = appHook();
   const { profile, list_id, access_token } = useAppState();
-  console.log(useAppState());
+
+  const copyEvent = () => {
+    setCopyText("Copied to clipboard!");
+    setTimeout(() => {
+      setCopyText(list_id);
+    }, 2000);
+  };
 
   return (
     <div className={styles.container}>
@@ -20,9 +31,6 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {/* <a href="https://accounts.spotify.com/authorize?client_id=c96d35f8f1314c7a8d2b4694992e39ee&response_type=token&redirect_uri=http%3A%2F%2Flocalhost:3000%2Flogin&scope=user-read-private%20user-read-email%20user-top-read%20playlist-modify-public%20playlist-modify-private%20user-read-private%20user-read-recently-played&state=34fFs29kd09&show_dialog=true">
-          Button
-        </a> */}
         <div className={styles.mainContent}>
           <div className={styles.contentTexts}>
             <h1>Your stats for Spotify</h1>
@@ -34,7 +42,9 @@ export default function Home() {
                 <h3>Hello, {profile.display_name}</h3>
                 <div className={styles.urlContainer}>
                   <span>Your list url:</span>
-                  <input disabled value={list_id} />
+                  <CopyToClipboard text={list_id} onCopy={copyEvent}>
+                    <input defaultValue={list_id} value={copyText} />
+                  </CopyToClipboard>
                 </div>
                 <a className={styles.button} href="#">
                   Manage Your Account

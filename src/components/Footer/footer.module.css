@@ -8,6 +8,8 @@
   align-items: center;
   margin-bottom: 20px;
   background-color: #fff;
+  padding: 0 20px;
+  text-align: center;
 }
 
 .footer p a {
@@ -15,4 +17,10 @@
 }
 .footer span a {
   font-weight: bold;
+}
+
+@media (max-width: 576px) {
+  .footer {
+    font-size: 14px;
+  }
 }

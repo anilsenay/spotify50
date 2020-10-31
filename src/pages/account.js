@@ -13,6 +13,7 @@ import fire from "../firebase/config";
 export default function Home() {
   const [copyText, setCopyText] = useState();
   const [errorText, setErrorText] = useState();
+
   const { useAppState, setProfile, setListId } = appHook();
   const { profile, list_id, access_token } = useAppState();
 
@@ -33,47 +34,51 @@ export default function Home() {
   };
 
   const removeMyAccount = () => {
-    fire
-      .firestore()
-      .collection("Users")
-      .doc(profile.id)
-      .delete()
-      .then(() => {
-        fire
-          .firestore()
-          .collection("Lists")
-          .doc(list_id)
-          .delete()
-          .then(() => {
-            setProfile(null);
-            setListId(null);
-          })
-          .catch((e) => setErrorText(e));
-      })
-      .catch((e) => setErrorText(e))
-      .finally(() => router.push("/"));
+    window.confirm("Are you sure to delete your Spotify50 account?") &&
+      fire
+        .firestore()
+        .collection("Users")
+        .doc(profile.id)
+        .delete()
+        .then(() => {
+          fire
+            .firestore()
+            .collection("Lists")
+            .doc(list_id)
+            .delete()
+            .then(() => {
+              setProfile(null);
+              setListId(null);
+            })
+            .catch((e) => setErrorText(e));
+        })
+        .catch((e) => setErrorText(e))
+        .finally(() => router.push("/"));
   };
 
   const updateList = () => {
-    fire
-      .firestore()
-      .collection("Users")
-      .doc(profile.id)
-      .update({ lists: null })
-      .then(() => {
-        fire
-          .firestore()
-          .collection("Lists")
-          .doc(list_id)
-          .delete()
-          .then(() => {
-            router.push(
-              "https://accounts.spotify.com/authorize?client_id=c96d35f8f1314c7a8d2b4694992e39ee&response_type=token&redirect_uri=http%3A%2F%2Flocalhost:3000%2Flogin&scope=user-read-private%20user-read-email%20user-top-read%20playlist-modify-public%20playlist-modify-private%20user-read-private%20user-read-recently-played&state=34fFs29kd09&show_dialog=true"
-            );
-          })
-          .catch((e) => setErrorText(e));
-      })
-      .catch((e) => setErrorText(e));
+    window.confirm(
+      "Are you sure to update your stats? Your list url will be changed!"
+    ) &&
+      fire
+        .firestore()
+        .collection("Users")
+        .doc(profile.id)
+        .update({ lists: null })
+        .then(() => {
+          fire
+            .firestore()
+            .collection("Lists")
+            .doc(list_id)
+            .delete()
+            .then(() => {
+              router.push(
+                "https://accounts.spotify.com/authorize?client_id=c96d35f8f1314c7a8d2b4694992e39ee&response_type=token&redirect_uri=http%3A%2F%2Flocalhost:3000%2Flogin&scope=user-read-private%20user-read-email%20user-top-read%20playlist-modify-public%20playlist-modify-private%20user-read-private%20user-read-recently-played&state=34fFs29kd09&show_dialog=true"
+              );
+            })
+            .catch((e) => setErrorText(e));
+        })
+        .catch((e) => setErrorText(e));
   };
 
   return (
@@ -82,7 +87,7 @@ export default function Home() {
         <title>My Account</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      {/* <Modal /> */}
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.contentTexts}>
@@ -115,6 +120,7 @@ export default function Home() {
                 </Link>{" "}
                 to see how we use and store your Spotify data.
               </span>
+              {errorText && <p>{errorText}</p>}
             </div>
           </div>
           <Image src="/home-bg.png" width={538} height={565} />

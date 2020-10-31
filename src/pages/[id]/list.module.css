@@ -195,6 +195,9 @@
 }
 
 @media (max-width: 576px) {
+  .main {
+    padding: 0px 4px;
+  }
   .main h1 {
     font-size: 7vw;
     text-align: center;
@@ -234,10 +237,11 @@
     width: 35vw;
     margin-left: 10px;
     margin-right: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
   .cardAsList {
     width: 100%;
+    margin-bottom: 0px;
   }
   .card p {
     font-size: 14px;

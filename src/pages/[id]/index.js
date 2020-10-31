@@ -127,6 +127,7 @@ export default function List({ data, error, type }) {
                     >
                       <img
                         src={item.images[0].url}
+                        className={listType === "rectangle" && styles.cardImage}
                         alt={item.name}
                         loading="lazy"
                       />
@@ -150,17 +151,11 @@ export default function List({ data, error, type }) {
                       {listType === "rectangle" ? (
                         <div className={styles.discImage}>
                           <div className={styles.discCircle}>
-                            <div
-                              style={{
-                                width: 40,
-                                height: 40,
-                                borderRadius: 100,
-                                backgroundColor: "white",
-                              }}
-                            />
+                            <div className={styles.discHole} />
                           </div>
                           <img
                             src={item.album?.images[0].url}
+                            className={styles.cardImage}
                             alt={item.name}
                             loading="lazy"
                           />

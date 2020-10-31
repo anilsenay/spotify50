@@ -3,9 +3,7 @@ import Image from "next/image";
 
 import styles from "../styles/Home.module.css";
 
-import PlaylistIcon from "../icons/playlist";
-import ClockIcon from "../icons/clock";
-import ShareIcon from "../icons/share";
+import Features from "../components/Features";
 
 import appHook from "../hooks/app.hook";
 import { useState } from "react";
@@ -64,26 +62,11 @@ export default function Home() {
                 </span>
               </>
             )}
-            <div className={styles.features}>
-              <div>
-                <PlaylistIcon width={100} height={100} />
-                <h4>Your Top 50 Lists</h4>
-                <span>See your most listened top 50 Artists and Tracks.</span>
-              </div>
-              <div>
-                <ClockIcon width={100} height={100} />
-                <h4>3 Different Time Periods</h4>
-                <span>See your top 50 lists in different 3 time periods</span>
-              </div>
-              <div>
-                <ShareIcon width={100} height={100} />
-                <h4>Share Your Lists</h4>
-                <span>Share your lists for others by copy your unique URL</span>
-              </div>
-            </div>
+            <Features className={styles.lgFeatures} />
           </div>
-          <Image src="/home-bg.png" width="538" height="565" />
+          <Image src="/home-bg.png" className={styles.bgImage} unsized />
         </div>
+        <Features className={styles.smFeatures} />
       </main>
     </div>
   );

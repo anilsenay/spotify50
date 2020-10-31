@@ -87,7 +87,7 @@ export default function Home() {
         <title>My Account</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <Modal /> */}
+
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.contentTexts}>
@@ -123,7 +123,7 @@ export default function Home() {
               {errorText && <p>{errorText}</p>}
             </div>
           </div>
-          <Image src="/home-bg.png" width={538} height={565} />
+          <Image src="/home-bg.png" className={styles.bgImage} unsized />
         </div>
       </main>
     </div>

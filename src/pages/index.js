@@ -72,7 +72,7 @@ export default function Home() {
               </div>
               <div>
                 <ClockIcon width={100} height={100} />
-                <h4>3 Differnt Time Periods</h4>
+                <h4>3 Different Time Periods</h4>
                 <span>See your top 50 lists in different 3 time periods</span>
               </div>
               <div>

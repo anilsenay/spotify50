@@ -30,3 +30,34 @@
 .login {
   margin-left: auto;
 }
+
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 128px;
+    height: 41px;
+  }
+  .navigation {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+    width: 112px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 370px) {
+  .logo {
+    width: 104px;
+    height: 33px;
+    margin-right: 20px;
+  }
+  .navItem {
+    margin-right: 20px;
+  }
+}

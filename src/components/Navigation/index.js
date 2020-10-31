@@ -16,7 +16,6 @@ export default function Navigation() {
   return (
     <div className={styles.container}>
       <nav className={styles.navigation}>
-        {/* {<h2 className={styles.logo}>Spotify 50</h2>} */}
         <Link href="/">
           <img src="/logo.png" className={styles.logo} />
         </Link>

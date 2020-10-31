@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Spotify50 - Your Spotify Top 50's Lists</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -58,7 +58,10 @@ export default function Home() {
                   Login with Spotify
                 </a>
                 <span className={styles.privacyText}>
-                  By logging in, you agree to our privacy policy
+                  By logging in, you agree to our{" "}
+                  <Link href="/privacy-policy">
+                    <a>privacy policy</a>
+                  </Link>
                 </span>
               </>
             )}

@@ -102,6 +102,18 @@
   max-width: 230px;
   text-align: center;
 }
+.cardAsList {
+  width: 100%;
+  max-width: none;
+  flex-direction: row;
+  justify-content: start;
+  border: none;
+  border-bottom: 1px solid #eaeaea;
+  padding: 0px;
+  padding-bottom: 1rem;
+  border-radius: 0;
+  margin-bottom: 16px;
+}
 
 .card:hover,
 .card:focus,
@@ -116,6 +128,12 @@
   height: 180px;
   object-fit: cover;
 }
+.cardAsList img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 20px;
+}
 
 .card h3 {
   margin: 0 0 1rem 0;
@@ -127,6 +145,11 @@
   font-size: 1.25rem;
   line-height: 1.5;
   margin-top: 0.75rem;
+}
+.cardAsList p {
+  width: 50%;
+  text-align: left;
+  margin-top: 0;
 }
 
 .logo {
@@ -150,6 +173,9 @@
   padding-left: 50px;
   padding-right: 50px;
   justify-content: space-between;
+}
+.listItemsAsList {
+  flex-direction: column;
 }
 
 .listHeader {
@@ -224,6 +250,7 @@
   z-index: 1;
   border-radius: 100%;
 }
+
 .discCircle {
   display: flex;
   justify-content: center;
@@ -234,6 +261,12 @@
   z-index: 2;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+}
+
+.number {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
 @media (max-width: 400px) {

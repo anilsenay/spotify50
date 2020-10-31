@@ -44,24 +44,11 @@ export default function List({ data, error, type }) {
           's Spotify Stats
         </h1>
         <h2>{`Top 50 ${typeTexts[type]} (${termTexts[term]})`}</h2>
-        {/* <div className={styles.switchContainer}>
-          <button
-            onClick={() => setType("artists")}
-            className={styles.switchButton}
-            style={{ backgroundColor: type === "artists" && "white" }}
-          >
-            <span>Artists</span>
-          </button>
-          <button
-            onClick={() => setType("tracks")}
-            className={styles.switchButton}
-            style={{ backgroundColor: type === "tracks" && "white" }}
-          >
-            <span>Tracks</span>
-          </button>
-        </div> */}
         <div className={styles.listContainer}>
-          <div className={styles.listHeader}>
+          <div
+            className={styles.listHeader}
+            style={{ marginBottom: listType === "line" && 16 }}
+          >
             <div className={styles.headerItems}>
               <button
                 className={styles.headerItem}
@@ -117,14 +104,27 @@ export default function List({ data, error, type }) {
               </button>
             </div>
           </div>
-          <div className={styles.listItems}>
+
+          <div
+            className={
+              listType === "rectangle"
+                ? styles.listItems
+                : `${styles.listItems} ${styles.listItemsAsList}`
+            }
+          >
             {data &&
               data[type] &&
               data[type][term] &&
               data[type][term].map((item, index) => {
                 return type === "artists" ? (
                   <a href={item.external_urls.spotify} key={item.id}>
-                    <div className={styles.card}>
+                    <div
+                      className={
+                        listType === "rectangle"
+                          ? styles.card
+                          : `${styles.card} ${styles.cardAsList}`
+                      }
+                    >
                       <img
                         src={item.images[0].url}
                         alt={item.name}
@@ -137,30 +137,47 @@ export default function List({ data, error, type }) {
                   </a>
                 ) : (
                   <a href={item.external_urls.spotify} key={item.id}>
-                    <div className={styles.card}>
-                      <div className={styles.discImage}>
-                        <div className={styles.discCircle}>
-                          <div
-                            style={{
-                              width: 40,
-                              height: 40,
-                              borderRadius: 100,
-                              backgroundColor: "white",
-                            }}
+                    <div
+                      className={
+                        listType === "rectangle"
+                          ? styles.card
+                          : `${styles.card} ${styles.cardAsList}`
+                      }
+                    >
+                      {listType === "line" && (
+                        <span className={styles.number}>{index + 1}</span>
+                      )}
+                      {listType === "rectangle" ? (
+                        <div className={styles.discImage}>
+                          <div className={styles.discCircle}>
+                            <div
+                              style={{
+                                width: 40,
+                                height: 40,
+                                borderRadius: 100,
+                                backgroundColor: "white",
+                              }}
+                            />
+                          </div>
+                          <img
+                            src={item.album?.images[0].url}
+                            alt={item.name}
+                            loading="lazy"
                           />
                         </div>
+                      ) : (
                         <img
                           src={item.album?.images[0].url}
                           alt={item.name}
                           loading="lazy"
                         />
-                      </div>
+                      )}
+                      <p>{item.name}</p>
                       <p style={{ fontWeight: "bold" }}>
                         {item.album?.artists
                           .map((artist) => artist.name)
                           .join(", ")}
                       </p>
-                      <p>{item.name}</p>
                     </div>
                   </a>
                 );

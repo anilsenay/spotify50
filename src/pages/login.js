@@ -5,7 +5,6 @@ import appHook from "../hooks/app.hook";
 import styles from "../styles/Loading.module.css";
 
 export default function Login({ data }) {
-  console.log(data);
   const router = useRouter();
   const { useAppState, setAccessToken } = appHook();
 
@@ -13,11 +12,8 @@ export default function Login({ data }) {
     const url = router?.asPath;
     const token = url && url.slice(url.indexOf("=") + 1, url.indexOf("&"));
 
-    console.log(token);
     token && setAccessToken(token);
   }, []);
-
-  console.log(useAppState());
 
   const { access_token } = useAppState();
 

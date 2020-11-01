@@ -15,7 +15,6 @@ export default function List({ data, error, type }) {
   const [listType, setListType] = useState("rectangle");
 
   const router = useRouter();
-  console.log(router.query);
 
   const typeTexts = { artists: "Artists", tracks: "Tracks" };
   const termTexts = {
@@ -26,9 +25,7 @@ export default function List({ data, error, type }) {
 
   const { useAppState, setListId } = appHook();
   !useAppState().list_id && setListId(router.query.id);
-  console.log(useAppState());
 
-  console.log(data, error);
   return (
     <div className={styles.container}>
       <Head>

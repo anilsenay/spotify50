@@ -34,7 +34,6 @@ const useTracks = (token) => {
             const responseOne = responses[0];
             const responseTwo = responses[1];
             const responesThree = responses[2];
-            console.log(responseOne, responseTwo, responesThree);
             setTracks({
               short_term:
                 responseOne.status == 200 ? responseOne.data.items : [],

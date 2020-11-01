@@ -25,7 +25,6 @@ const useArtists = (token) => {
     setIsLoading(true);
     function fetchArtists() {
       try {
-        console.log("entered");
         const requestOne = axios.get(one, headers);
         const requestTwo = axios.get(two, headers);
         const requestThree = axios.get(three, headers);
@@ -35,7 +34,6 @@ const useArtists = (token) => {
             const responseOne = responses[0];
             const responseTwo = responses[1];
             const responesThree = responses[2];
-            console.log(responseOne, responseTwo, responesThree);
             const newState = {
               short_term:
                 responseOne.status == 200 ? responseOne.data.items : [],

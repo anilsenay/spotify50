@@ -12,17 +12,12 @@ import fire from "../firebase/config";
 import styles from "../styles/Loading.module.css";
 
 function CreateLists({ router }) {
-  console.log(router.query.token);
   const { setArtists, setProfile, setTracks, useAppState } = appHook();
   const routerRef = useRouter();
 
   const { artists } = useArtists(router.query.token);
   const { tracks } = useTracks(router.query.token);
   const { profile } = useProfile(router.query.token);
-
-  console.log("artists", artists);
-  console.log("tracks", tracks);
-  console.log("profile", profile);
 
   useEffect(() => {
     artists && setArtists(artists);
@@ -61,8 +56,6 @@ function CreateLists({ router }) {
         });
     }
   }, [artists, tracks, profile]);
-
-  console.log(useAppState());
 
   return (
     <div className={styles.container}>

@@ -6,7 +6,7 @@ export default function CustomHead() {
     <Head>
       <meta
         name="description"
-        content="List and share your Spotify top 50 lists by Spoitfy50"
+        content="List and share your Spotify top 50 lists by Spotify50"
       />
       <meta
         name="viewport"

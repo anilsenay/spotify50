@@ -29,7 +29,7 @@ export default function Home() {
   const copyEvent = () => {
     setCopyText("Copied to clipboard!");
     setTimeout(() => {
-      setCopyText(list_id);
+      setCopyText("https://spotify50.com/" + list_id);
     }, 2000);
   };
 
@@ -94,8 +94,14 @@ export default function Home() {
             <div className={styles.userContainer}>
               <div className={styles.urlContainer}>
                 <span>Your list url:</span>
-                <CopyToClipboard text={list_id} onCopy={copyEvent}>
-                  <input defaultValue={list_id} value={copyText} />
+                <CopyToClipboard
+                  text={"https://spotify50.com/" + list_id}
+                  onCopy={copyEvent}
+                >
+                  <input
+                    defaultValue={"https://spotify50.com/" + list_id}
+                    value={copyText}
+                  />
                 </CopyToClipboard>
               </div>
               <button onClick={updateList} className={styles.button}>

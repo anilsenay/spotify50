@@ -31,7 +31,7 @@ export default function List({ data, error, type }) {
   const copyEvent = () => {
     setCopyText("Copied to clipboard!");
     setTimeout(() => {
-      setCopyText(router.query.id);
+      setCopyText("https://spotify50.com/" + router.query.id);
     }, 2000);
   };
 
@@ -192,8 +192,14 @@ export default function List({ data, error, type }) {
         </div>
         <div className={styles.urlContainer}>
           <span>Click to copy list url:</span>
-          <CopyToClipboard text={router.query.id} onCopy={copyEvent}>
-            <input defaultValue={router.query.id} value={copyText} />
+          <CopyToClipboard
+            text={"https://spotify50.com/" + router.query.id}
+            onCopy={copyEvent}
+          >
+            <input
+              defaultValue={"https://spotify50.com/" + router.query.id}
+              value={copyText}
+            />
           </CopyToClipboard>
         </div>
       </main>

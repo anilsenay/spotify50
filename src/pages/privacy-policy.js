@@ -8,7 +8,6 @@ export default function PrivacyPolicy() {
     <div className={styles.container}>
       <Head>
         <title>Privacy Policy - Spotify50</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
         <h1>Privacy Policy</h1>

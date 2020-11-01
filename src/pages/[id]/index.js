@@ -30,7 +30,6 @@ export default function List({ data, error, type }) {
     <div className={styles.container}>
       <Head>
         <title>{data.display_name}'s Spotify Stats</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>

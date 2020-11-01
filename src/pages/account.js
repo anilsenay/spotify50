@@ -85,7 +85,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>My Account</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>

@@ -3,11 +3,12 @@ import React from "react";
 import Navigation from "../Navigation";
 import Footer from "../Footer";
 
-import styles from "./layout.module.css";
+import CustomHead from "../CustomHead";
 
 export default function Layout({ children }) {
   return (
     <div>
+      <CustomHead />
       <Navigation />
       {children}
       <Footer />

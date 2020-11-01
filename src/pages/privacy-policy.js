@@ -35,6 +35,15 @@ export default function PrivacyPolicy() {
             Your top 50 tracks and artists data which Spotify provides us.{" "}
           </li>
         </ul>
+        <h3>Use Of Your Data</h3>
+        <p>
+          We use your data to list your top 50 lists. When you generate your
+          lists, your lists are accessible by going that generated URL. Your top
+          lists' data, your Spotify display name and your Spotify profile url
+          will be shown there. Other of your personal data
+          {"(email, followers etc.)"} which Spotify provided us, will not be
+          shared to other people.
+        </p>
         <p>
           By signing in with your Spotify account, you will accept that you are
           allowing us to store your Spotify data. We will store your data until

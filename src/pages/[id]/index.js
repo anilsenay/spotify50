@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter, Router } from "next/router";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import styles from "./list.module.css";
 
@@ -13,6 +14,7 @@ import ListIcon from "../../icons/list";
 export default function List({ data, error, type }) {
   const [term, setTerm] = useState("long_term");
   const [listType, setListType] = useState("rectangle");
+  const [copyText, setCopyText] = useState();
 
   const router = useRouter();
 
@@ -26,10 +28,23 @@ export default function List({ data, error, type }) {
   const { useAppState, setListId } = appHook();
   !useAppState().list_id && setListId(router.query.id);
 
+  const copyEvent = () => {
+    setCopyText("Copied to clipboard!");
+    setTimeout(() => {
+      setCopyText(router.query.id);
+    }, 2000);
+  };
+
+  useLayoutEffect(() => {
+    !data && router && router.replace("/404");
+  }, [data, router]);
+
+  if (!data) return null;
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>{data.display_name}'s Spotify Stats</title>
+        <title>{data?.display_name || "Anonim"}'s Spotify Stats</title>
       </Head>
 
       <main className={styles.main}>
@@ -174,6 +189,12 @@ export default function List({ data, error, type }) {
                 );
               })}
           </div>
+        </div>
+        <div className={styles.urlContainer}>
+          <span>Click to copy list url:</span>
+          <CopyToClipboard text={router.query.id} onCopy={copyEvent}>
+            <input defaultValue={router.query.id} value={copyText} />
+          </CopyToClipboard>
         </div>
       </main>
     </div>

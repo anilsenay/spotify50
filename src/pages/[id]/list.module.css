@@ -188,6 +188,27 @@
   font-size: 1.25rem;
 }
 
+.urlContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.urlContainer input {
+  background-color: #f6f6f6;
+  border: 2px solid #eee;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #1db954;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.urlContainer span {
+  font-weight: bold;
+  margin: 4px 0px;
+}
+
 @media (max-width: 992px) {
 }
 

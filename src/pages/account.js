@@ -90,7 +90,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.mainContent}>
           <div className={styles.contentTexts}>
-            <h1>Hello, {profile.display_name}</h1>
+            <h1>Hello, {profile?.display_name || "Anonim"}</h1>
             <div className={styles.userContainer}>
               <div className={styles.urlContainer}>
                 <span>Your list url:</span>

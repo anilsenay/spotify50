@@ -192,6 +192,9 @@
   .userContainer {
     align-items: center;
   }
+  .urlContainer input {
+    margin-left: 0;
+  }
   .contentTexts {
     align-items: center;
     margin-right: 0;
